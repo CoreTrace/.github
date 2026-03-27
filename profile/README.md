@@ -6,7 +6,7 @@
 
 Static analysis · Runtime instrumentation · Developer diagnostics · CI policy gates
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?logo=cplusplus)](https://isocpp.org/)
 [![LLVM](https://img.shields.io/badge/LLVM-20-262D3A?logo=llvm)](https://llvm.org/)
 
@@ -24,30 +24,32 @@ CoreTrace is a modular toolchain that helps teams ship **safer and more predicta
 
 | | Repository | Description |
 |---|---|---|
-| | [coretrace](https://github.com/CoreTrace/coretrace) | Main CLI orchestrator — static/dynamic analysis, tool invocation, SARIF export, server mode |
-| | [coretrace-compiler](https://github.com/CoreTrace/coretrace-compiler) | Clang/LLVM compiler wrapper — IR emission, binary build, instrumentation modules |
+| | Repository | License | Description |
+|---|---|---|---|
+| | [coretrace](https://github.com/CoreTrace/coretrace) | Apache 2.0 | Main CLI orchestrator — static/dynamic analysis, tool invocation, SARIF export, server mode |
+| | [coretrace-compiler](https://github.com/CoreTrace/coretrace-compiler) | Apache 2.0 | Clang/LLVM compiler wrapper — IR emission, binary build, instrumentation modules |
 
 ### Analyzers
 
-| | Repository | Description |
-|---|---|---|
-| | [coretrace-stack-analyzer](https://github.com/CoreTrace/coretrace-stack-analyzer) | Stack and resource analysis engine with SARIF output and CI adapters |
-| | [coretrace-concurrency-analyzer](https://github.com/CoreTrace/coretrace-concurrency-analyzer) | Threading and race condition detection |
+| | Repository | License | Description |
+|---|---|---|---|
+| | [coretrace-stack-analyzer](https://github.com/CoreTrace/coretrace-stack-analyzer) | Apache 2.0 | Stack and resource analysis engine with SARIF output and CI adapters |
+| | [coretrace-concurrency-analyzer](https://github.com/CoreTrace/coretrace-concurrency-analyzer) | Apache 2.0 | Threading and race condition detection |
 
 ### Developer Tools
 
-| | Repository | Description |
-|---|---|---|
-| | [coretrace-gui](https://github.com/CoreTrace/coretrace-gui) | Web and desktop interface |
-| | [coretrace-vscode](https://github.com/CoreTrace/coretrace-vscode) | VS Code extension |
+| | Repository | License | Description |
+|---|---|---|---|
+| | [coretrace-gui](https://github.com/CoreTrace/coretrace-gui) | Apache 2.0 | Web and desktop interface |
+| | [coretrace-vscode](https://github.com/CoreTrace/coretrace-vscode) | Apache 2.0 | VS Code extension |
 
 ### Libraries & Infrastructure
 
-| | Repository | Description |
-|---|---|---|
-| | [coretrace-log](https://github.com/CoreTrace/coretrace-log) | Lightweight C++20 logging library |
-| | [coretrace-testkit](https://github.com/CoreTrace/coretrace-testkit) | Python testing framework for the ecosystem |
-| | [coretrace-ci-consumer-demo](https://github.com/CoreTrace/coretrace-ci-consumer-demo) | CI/CD integration reference and demo |
+| | Repository | License | Description |
+|---|---|---|---|
+| | [coretrace-log](https://github.com/CoreTrace/coretrace-log) | MIT | Lightweight C++20 logging library |
+| | [coretrace-testkit](https://github.com/CoreTrace/coretrace-testkit) | Apache 2.0 | Python testing framework for the ecosystem |
+| | [coretrace-ci-consumer-demo](https://github.com/CoreTrace/coretrace-ci-consumer-demo) | Apache 2.0 | CI/CD integration reference and demo |
 
 ### Documentation
 
@@ -104,6 +106,10 @@ coretrace-stack-analyzer --format sarif ./my-binary
 | **Build** | CMake |
 | **Output** | JSON, SARIF |
 | **CI** | clang-format enforcement, SARIF policy gates |
+
+## License
+
+Most repositories are licensed under **Apache 2.0** — permissive, patent-safe, and compatible with the LLVM toolchain. Standalone libraries (coretrace-log) use the **MIT** license for maximum integration flexibility.
 
 ## Contributing
 
