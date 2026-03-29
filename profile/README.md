@@ -22,8 +22,6 @@ CoreTrace is a modular toolchain that helps teams ship **safer and more predicta
 
 ### Core
 
-| | Repository | Description |
-|---|---|---|
 | | Repository | License | Description |
 |---|---|---|---|
 | | [coretrace](https://github.com/CoreTrace/coretrace) | Apache 2.0 | Main CLI orchestrator — static/dynamic analysis, tool invocation, SARIF export, server mode |
@@ -61,16 +59,16 @@ CoreTrace is a modular toolchain that helps teams ship **safer and more predicta
 
 ## Architecture
 
-```
+```raw
 ┌──────────────────────────────────────────────────────┐
-│                    coretrace CLI                      │
-│          orchestration · config · SARIF export        │
+│                    coretrace CLI                     │
+│          orchestration · config · SARIF export       │
 ├────────────┬─────────────────────┬───────────────────┤
 │  compiler  │   stack-analyzer    │   concurrency-    │
 │  wrapper   │                     │   analyzer        │
 │  (Clang)   │   (LLVM analysis)   │   (thread safety) │
 ├────────────┴─────────────────────┴───────────────────┤
-│              LLVM / Clang toolchain                   │
+│              LLVM / Clang toolchain                  │
 └──────────────────────────────────────────────────────┘
         ▲                                    │
         │ C/C++ source                       ▼
@@ -87,14 +85,19 @@ CoreTrace is a modular toolchain that helps teams ship **safer and more predicta
 ## Quick Start
 
 ```bash
-# 1. Run end-to-end analysis locally
-coretrace analyze ./my-project
+# 1. Run end-to-end analysis locally (coretrace)
+./ctrace --input main.cpp --entry-points=main --verbose --static --dyn
 
-# 2. Use the compiler wrapper for IR-level workflows
-coretrace-compiler build ./my-project
+# 2. Use the compiler wrapper for IR-level workflows (coretrace-compiler)
+./cc -S -emit-llvm test.cc
 
-# 3. Add stack analysis in CI with SARIF output
-coretrace-stack-analyzer --format sarif ./my-binary
+# 3. Add stack analysis in CI with SARIF output (coretrace-stack-analyzer)
+python3 scripts/ci/run_code_analysis.py \
+  --analyzer ./build/stack_usage_analyzer \
+  --compdb ./build/compile_commands.json \
+  --fail-on error \
+  --json-out artifacts/stack-usage.json \
+  --sarif-out artifacts/stack-usage.sarif
 ```
 
 ## Tech Stack
