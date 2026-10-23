@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://raw.githubusercontent.com/CoreTrace/.github/main/profile/assets/coretrace-mosaic.gif" alt="CoreTrace horse drawn as an animated red LED mosaic" width="900">
+
 # CoreTrace
 
 **Compiler-grade C/C++ analysis, from source code to actionable evidence**
